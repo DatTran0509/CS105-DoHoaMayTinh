@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>DDA</title>
+    <link href="style/main.css" rel="stylesheet" type="text/css"> 
+</head>
+
+<body>
+<div class = "container">
+    <div class = "heading">
+        <h1 class = "title">CS105 - ĐỒ HOẠ MÁY TINH</h1>
+        <h1 class = "title">SỬ DỤNG THUẬT TOÁN DDA, BRESENHAM, MIDPOINT</h1>
+        <h3 class = "author">ỨNG DỤNG HỖ TRỢ VẼ HÌNH</h3>
+    </div>
+    <label for="algo-sel">Chọn một thuật toán:</label>
+    <select id="algo-sel" name="algo">
+        <option value="1">Thuật toán DDA</option>
+        <option value="2">Thuật toán Bresenham</option>
+        <option value="3">Thuật toán Midpoint</option>
+    </select>
+    <div class= "main-container">
+        <canvas id = "canvas">
+        </canvas>
+    </div>
+    
+    <div class = "buttons">
+        <script>
+            function reset() {
+              window.location.reload();
+            }
+          </script>
+          <button onclick = "reset()">Reset</button>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</div>
+</body>
+</html>

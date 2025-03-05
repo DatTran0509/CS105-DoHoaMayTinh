@@ -1,0 +1,74 @@
+html, body {
+    margin: 70px 0;
+    padding: 0;
+    background: #84295a;  /* Màu nền tối hơn */
+    color: #ffffff;
+    font-family: "Times New Roman", "Helvetica Neue", Times, sans-serif;
+    font-size: 18px; 
+    text-align: center;
+    font-style: italic; /* Chữ xiên */
+}
+
+#heading {
+    font-size: medium;
+    text-align: center;
+    font-weight: bold;
+}
+
+#algo-sel {
+    font-size: medium;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #0d0d0c; /* Viền vàng */
+    background-color: #333366; /* Nền xanh đậm */
+    color: #ffffff; /* Chữ trắng */
+    padding: 5px;
+    cursor: pointer;
+}
+
+#algo-sel:hover {
+    background-color: #2243d7; /* Vàng sáng khi hover */
+    color: #f9fafa;
+}
+
+#main-container {
+    margin: 0 auto;
+    display: block;
+}
+
+#canvas {
+    margin: 10px auto;
+    display: block;
+    border: 3px solid #f7fafa; /* Viền vàng nổi bật */
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.buttons {
+    margin: 10px;
+}
+
+.buttons button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    display: inline-block;
+    background: #ff6600; /* Cam nổi bật */
+    border-radius: 5px;
+    padding: 0 20px;
+    text-decoration: none;
+    color: #ffffff;
+    height: 40px;
+    line-height: 42px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.buttons button:hover {
+    background: #ffcc00; /* Vàng khi hover */
+    color: #000000;
+}
