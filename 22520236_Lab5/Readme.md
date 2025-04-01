@@ -5,8 +5,7 @@ Bước 1: Cài đặt Parcel 2
 ```sh
 npm install parcel -g
 hoặc 
-sudo npm install -g parcel
-
+sudo npm install parcel -g
 ```
 Bước 2: Cài đặt thư viện three.js
 ```sh
