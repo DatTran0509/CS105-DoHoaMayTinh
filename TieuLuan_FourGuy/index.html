@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FourGuy Fractal Viewer - Koch, Minkowski & Sierpiński</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 28px;
+      color: #00796b;
+    }
+    canvas {
+      border: 2px solid #00796b;
+      background-color: #ffffff;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .controls {
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .controls label, .controls input, .controls button {
+      margin: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #00796b;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004d40;
+    }
+    footer {
+      margin-top: 40px;
+      padding: 10px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <h2>FourGuys Team</h2>
+  <h2>Fractal Generator: Koch Snowflake, Minkowski Island & Sierpiński Fractals</h2>
+  <canvas id="canvas" width="800" height="800"></canvas>
+
+  <div class="controls">
+    <label>Koch's Snowflake Level (0-8):
+      <input type="number" id="kochLevel" min="0" max="8" value="3">
+    </label>
+    <button onclick="renderKoch()">Draw Koch Snowflake</button>
+    <br>
+    <label>Minkowski Island Level (0-6):
+      <input type="number" id="minkowskiLevel" min="0" max="5" value="1">
+    </label>
+    <button onclick="renderMinkowski()">Draw Minkowski Island</button>
+    <br>
+    <label>Sierpiński Carpet Level (1-7):
+      <input type="number" id="sierpinskiLevel" min="1" max="7" value="5">
+    </label>
+    <button onclick="renderSierpinski()">Draw Sierpiński Carpet</button>
+    <br>
+    <label>Sierpiński Triangle Level (1-10):
+      <input type="number" id="sierpinskiTriangleLevel" min="1" max="10" value="6">
+    </label>
+    <button onclick="renderSierpinskiTriangle()">Draw Sierpiński Triangle</button>
+  </div>
+
+  <footer>
+    Created by <strong>FourGuy</strong> &mdash; All fractals rendered with HTML5 & JavaScript
+  </footer>
+
+  <!-- Load individual fractal scripts -->
+  <script src="koch.js"></script>
+  <script src="minkowski.js"></script>
+  <script src="sierpinski_carpet.js"></script>
+  <script src="sierpinski_triangle.js"></script>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function renderKoch() {
+      clearCanvas();
+      const level = parseInt(document.getElementById("kochLevel").value);
+      drawKochSnowflake(ctx, level);
+    }
+
+    function renderMinkowski() {
+      clearCanvas();
+      const level = parseInt(document.getElementById("minkowskiLevel").value);
+      drawMinkowskiIsland(ctx, level);
+    }
+
+    function renderSierpinski() {
+      clearCanvas();
+      const level = parseInt(document.getElementById("sierpinskiLevel").value);
+      const size = canvas.width * 0.8;
+      const startX = (canvas.width - size) / 2;
+      const startY = (canvas.height - size) / 2;
+      ctx.fillStyle = 'black';
+      drawSierpinski(ctx, startX, startY, size, level);
+    }
+
+    function renderSierpinskiTriangle() {
+      clearCanvas();
+      const level = parseInt(document.getElementById("sierpinskiTriangleLevel").value);
+      const size = canvas.width * 0.9;
+      const height = size * Math.sqrt(3) / 2;
+      const p1 = { x: canvas.width / 2, y: (canvas.height - height) / 2 };
+      const p2 = { x: (canvas.width - size) / 2, y: (canvas.height + height) / 2 };
+      const p3 = { x: (canvas.width + size) / 2, y: (canvas.height + height) / 2 };
+      ctx.fillStyle = 'black';
+      drawSierpinskiTriangle(ctx, p1, p2, p3, level);
+    }
+  </script>
+</body>
+</html>
