@@ -18,4 +18,5 @@ npm install dat.gui
 ## Chạy chương trình
 ```sh
 parcel ./src/index.html
+coppy  và chạy link localhost ở terminal
 ```
